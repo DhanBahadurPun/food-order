@@ -1,1 +1,1 @@
-# food-order
+# This is only for educational project
