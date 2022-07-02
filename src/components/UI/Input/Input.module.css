@@ -1,0 +1,19 @@
+.flex{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.flex label{
+    flex-grow: 1;
+    font-size: 15px;
+    font-weight: 300;
+    padding: 2px;
+}
+
+.flex input{
+    flex-grow: 1;
+    padding: 2px;
+    outline: none;
+    /* margin: 10px; */
+}

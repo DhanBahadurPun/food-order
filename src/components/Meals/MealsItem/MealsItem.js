@@ -8,7 +8,7 @@ const MealsItem = (props) => {
     <li key={id}>
       <div className={classes.content}>
         <div className={classes["content-img-btn"]}>
-          <img src={imgURL} />
+          <img src={imgURL} alt={name} />
           <button>Order</button>
         </div>
         <div className={classes.details}>
