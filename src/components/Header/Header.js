@@ -9,7 +9,24 @@ const Header = (props) => {
     <Fragment>
       <header className={classes.header}>
         <h1>Foods</h1>
-        <HeaderCartButton onShowLogin={props.onShowLogin} />
+        <div className={classes["sub-header"]}>
+          {props.login && (
+            <Fragment>
+              <HeaderCartButton />
+              <button className={classes.button} onClick={props.onLogout}>
+                Log Out
+              </button>{" "}
+            </Fragment>
+          )}
+          {!props.login && (
+            <Fragment>
+              <button className={classes.button} onClick={props.onShowLogin}>
+                Sign In
+              </button>
+              <button className={classes.button}>Sign Up</button>
+            </Fragment>
+          )}
+        </div>
       </header>
       <div className={classes["main-image"]}>
         <img src={mealsImage} alt="A table food!" />

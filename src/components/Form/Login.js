@@ -38,8 +38,19 @@ const Login = (props) => {
                 type: "password",
               }}
             />
+            <Input
+              label="Remember Me"
+              className={classes.checked}
+              input={{
+                id: "checked",
+                type: "checkbox",
+                value: "true/false",
+              }}
+            />
             <div className={classes.actions}>
-              <button className={classes.button}>Login</button>
+              <button className={classes.button} onClick={props.onLogin}>
+                Login
+              </button>
             </div>
           </form>
         </div>

@@ -29,6 +29,20 @@
   margin-top: 5px;
 }
 
+.checked {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checked label{
+  order: 1;
+}
+
+.checked input{
+  margin-left: 0;
+}
+
 .cart-items {
     list-style: none;
     margin: 0;
@@ -57,7 +71,7 @@
     background-color: transparent;
     border: 1px solid #8a2b06;
     padding: 0.5rem 2rem;
-    border-radius: 25px;
+    border-radius: 10px;
     margin-left: 1rem;
   }
   

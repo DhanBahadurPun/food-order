@@ -4,8 +4,8 @@ import classes from "./Input.module.css";
 
 const Input = (props) => {
   return (
-    <div className={classes.flex}>
-      <label>{props.label}</label>
+    <div className={`${classes.flex} ${props.className}`}>
+      <label htmlFor={props.input.id}>{props.label}</label>
       <input {...props.input} />
     </div>
   );
