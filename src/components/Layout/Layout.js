@@ -26,7 +26,6 @@ const Layout = ({ children }) => {
   };
 
   const showLoginHandler = () => {
-    localStorage.setItem("isLoggedIn", "1");
     setLoginIsShown(true);
   };
 

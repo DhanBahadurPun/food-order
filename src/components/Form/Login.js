@@ -5,11 +5,58 @@ import Modal from "./Modal";
 import classes from "./Login.module.css";
 import imgURL from "../assets/food-demo.jpg";
 import CancelIcon from "../Cart/CancelIcon";
+import useInput from "../hooks/use-input";
 
 const Login = (props) => {
+  const {
+    value: enteredEmail,
+    isValid: enteredEmailIsValid,
+    hasError: emailInputHasError,
+    valueChangeHandler: emailChangeHaldler,
+    blurChangeHandler: emailBlurHandler,
+    reset: resetEmailInput,
+  } = useInput((value) => value.includes("@"));
+
+  const {
+    value: enteredPassword,
+    isValid: enteredPasswordIsValid,
+    hasError: passwordInputHasError,
+    valueChangeHandler: passwordChangeHandler,
+    blurChangeHandler: passwordBlurHandler,
+    reset: resetPasswordInput,
+  } = useInput((value) => value.trim() !== "" && value.length >= 8);
+
+  const {
+    checkedValue,
+    isValid: chedkedValueIsValid,
+    hasError: checkedInputHasError,
+    checkedChangeHandler: checkedChangeHaldler,
+    blurChangeHandler: checkedBlurHandler,
+    reset: resetCheckedInput,
+  } = useInput((value) => value !== false);
+
+  let formIsValid = false;
+
+  if (enteredEmailIsValid && enteredPasswordIsValid && chedkedValueIsValid) {
+    formIsValid = true;
+  }
+
   const onSubmitHandler = (event) => {
     event.preventDefault();
+
+    if (!enteredEmailIsValid) {
+      return;
+    }
+    console.log(enteredEmail, enteredPassword, checkedValue);
+
+    resetEmailInput();
+    resetPasswordInput();
+    resetCheckedInput();
   };
+
+  const emailInputClasses = emailInputHasError ? classes.invalid : "";
+  const passwordInputClasses = passwordInputHasError ? classes.invalid : "";
+  const checkedInputClasses = checkedInputHasError ? classes.invalid : "";
 
   return (
     <Modal onHideLogin={props.onHideLogin}>
@@ -25,30 +72,48 @@ const Login = (props) => {
           <form onSubmit={onSubmitHandler}>
             <Input
               label="Email:"
+              value={enteredEmail}
+              emailInputClasses={emailInputClasses}
+              onChange={emailChangeHaldler}
+              onBlur={emailBlurHandler}
               input={{
                 id: "email",
                 type: "email",
                 placeholder: "You@gmail.com",
               }}
             />
+
             <Input
               label="Password:"
+              value={enteredPassword}
+              passwordInputClasses={passwordInputClasses}
+              onChange={passwordChangeHandler}
+              onBlur={passwordBlurHandler}
               input={{
                 id: "password",
                 type: "password",
               }}
             />
+
             <Input
               label="Remember Me"
+              value={checkedValue}
+              checkedInputClasses={checkedInputClasses}
               className={classes.checked}
+              onChange={checkedChangeHaldler}
+              onBlur={checkedBlurHandler}
               input={{
-                id: "checked",
+                id: "checkbox",
                 type: "checkbox",
-                value: "true/false",
               }}
             />
+
             <div className={classes.actions}>
-              <button className={classes.button} onClick={props.onLogin}>
+              <button
+                className={classes.button}
+                disabled={!formIsValid}
+                onClick={props.onLogin}
+              >
                 Login
               </button>
             </div>

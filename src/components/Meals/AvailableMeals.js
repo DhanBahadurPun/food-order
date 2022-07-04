@@ -1,6 +1,5 @@
 import MealsItem from "./MealsItem/MealsItem";
 import demoImg from "../assets/food-demo.jpg";
-import Card from "../UI/Card/Card";
 import classes from "./AvailableMeals.module.css";
 
 const DUMMY_MEALS = [
@@ -50,21 +49,17 @@ const DUMMY_MEALS = [
 ];
 const AvailableMeals = () => {
   const mealsList = DUMMY_MEALS.map((meal) => (
-    <Card id={meal.id}>
+    <div key={meal.id}>
       <MealsItem
-        id={meal.id}
         name={meal.name}
         description={meal.description}
         price={meal.price}
         imgURL={meal.img}
       />
-    </Card>
+    </div>
   ));
-  return (
-    <section className={classes.meals}>
-      <ul>{mealsList}</ul>
-    </section>
-  );
+
+  return <div className={classes.flex}>{mealsList}</div>;
 };
 
 export default AvailableMeals;
