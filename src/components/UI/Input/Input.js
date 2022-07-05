@@ -16,6 +16,7 @@ const Input = (props) => {
         onClick={props.onClick}
         className={inputHasError}
         checked={props.value}
+        required
       />
     </div>
   );

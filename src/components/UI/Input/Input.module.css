@@ -9,6 +9,7 @@
     font-size: 15px;
     font-weight: 300;
     padding: 2px;
+    width: min-content;
 }
 
 .flex input{

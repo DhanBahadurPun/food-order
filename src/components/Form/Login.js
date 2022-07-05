@@ -60,12 +60,19 @@ const Login = (props) => {
 
   return (
     <Modal onHideLogin={props.onHideLogin}>
-      <div className={classes.flex}>
-        <img src={imgURL} alt="login" />
-        <div className={classes["form-content"]}>
-          <div className={`${classes.flex} ${classes["v-center"]}`}>
-            <h3>Login to Food Order</h3>
-            <div className={classes.icon} onClick={props.onHideLogin}>
+      <div className={classes["login-card"]}>
+        <div className={classes["login-card__image"]}>
+          <img src={imgURL} alt="login" />
+        </div>
+        <div className={classes["login-card__body"]}>
+          <div className={classes["login-card__body-heading"]}>
+            <h3 className={classes["login-card__body-heading_title"]}>
+              Login to Food Order
+            </h3>
+            <div
+              className={classes["login-card__body-heading_icon"]}
+              onClick={props.onHideLogin}
+            >
               <CancelIcon />
             </div>
           </div>
@@ -107,7 +114,6 @@ const Login = (props) => {
                 type: "checkbox",
               }}
             />
-
             <div className={classes.actions}>
               <button
                 className={classes.button}
@@ -118,6 +124,19 @@ const Login = (props) => {
               </button>
             </div>
           </form>
+          <div className={classes["login-card__body-footer"]}>
+            <div className={classes["login-card__body-footer_title"]}>
+              <span className={classes["login-card__body-footer_text"]}>
+                Don't have account?
+              </span>
+              <a href="/" className={classes["login-card__body-footer_link"]}>
+                Signup
+              </a>
+            </div>
+            <a href="/" className={classes["login-card__body-footer_link"]}>
+              Forgot Password?
+            </a>
+          </div>
         </div>
       </div>
     </Modal>

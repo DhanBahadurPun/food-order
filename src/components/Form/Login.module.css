@@ -1,28 +1,67 @@
-.flex{
+.login-card {
   display: flex;
   justify-content: space-between;
 }
 
-.flex img{
-  object-fit: cover;
+.login-card__image {
   height: 400px;
   width: 300px;
-  border-radius: 14px;
 }
 
-.form-content{
+.login-card__image img{
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 14px 0 0 14px;
+}
+
+.login-card__body{
+  display: flex;
+  flex-direction: column;
   margin-right: 10px;
   width: 250px;
 }
 
-.v-center {
+.login-card__body-heading {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
-.icon{
+.login-card__body-heading_title{
+  font-size: large;
+  font-weight: 500;
+}
+
+.login-card__body-heading_icon{
   cursor: pointer;
   height: 32px;
 }
+
+.login-card__body-footer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.login-card__body-footer_title{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.login-card__body-footer_text {
+  margin-right: 5px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.login-card__body-footer_link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* END */
 
 .form-content h2 {
   margin-top: 5px;
@@ -32,6 +71,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width: 122px;
 }
 
 .checked label{
