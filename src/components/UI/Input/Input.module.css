@@ -1,18 +1,18 @@
-.flex{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
+.flex {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
 }
 
-.flex label{
-    flex-grow: 1;
-    font-size: 15px;
-    font-weight: 300;
-    padding: 2px;
-    width: min-content;
+.flex label {
+  flex-grow: 1;
+  font-size: 15px;
+  font-weight: 300;
+  padding: 2px;
+  width: min-content;
 }
 
-.flex input{
-    padding: 8px;
-    outline: none;
+.flex input {
+  padding: 8px;
+  outline: none;
 }

@@ -62,7 +62,11 @@ const Login = (props) => {
     <Modal onHideLogin={props.onHideLogin}>
       <div className={classes["login-card"]}>
         <div className={classes["login-card__image"]}>
-          <img src={imgURL} alt="login" />
+          <img
+            src={imgURL}
+            alt="login"
+            className={classes["login-card__image-img"]}
+          />
         </div>
         <div className={classes["login-card__body"]}>
           <div className={classes["login-card__body-heading"]}>
@@ -124,16 +128,16 @@ const Login = (props) => {
               </button>
             </div>
           </form>
-          <div className={classes["login-card__body-footer"]}>
-            <div className={classes["login-card__body-footer_title"]}>
-              <span className={classes["login-card__body-footer_text"]}>
+          <div className={classes["login-card_footer"]}>
+            <div className={classes["login-card_footer_title"]}>
+              <span className={classes["login-card_footer_text"]}>
                 Don't have account?
               </span>
-              <a href="/" className={classes["login-card__body-footer_link"]}>
+              <a href="/" className={classes["login-card_footer_link"]}>
                 Signup
               </a>
             </div>
-            <a href="/" className={classes["login-card__body-footer_link"]}>
+            <a href="/" className={classes["login-card_footer_link"]}>
               Forgot Password?
             </a>
           </div>
