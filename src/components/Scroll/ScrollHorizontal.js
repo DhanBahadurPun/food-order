@@ -1,33 +1,29 @@
 import { Fragment } from "react";
+
 import LeftIcon from "../Cart/LeftIcon";
 import RightIcon from "../Cart/RightIcon";
-
+import demoImg from "../assets/food-demo.jpg";
 import classes from "./ScrollHorizontal.module.css";
 
 const ScrollHorizontal = () => {
-  document.getElementById("left-button").onclick = function () {
-    scrollLeft(document.getElementById("content"), -300, 1000);
+  const leftButtonHandler = () => {
+    scrollTo(document.getElementById("content"), -300, 1000);
   };
 
-  document.getElementById("right-button").onclick = function () {
-    scrollLeft(document.getElementById("content"), 300, 1000);
+  const rightButtonHandler = () => {
+    scrollTo(document.getElementById("content"), -300, 1000);
   };
 
-  // const buttonHandler = () => {
-  //   scrollLeft(document.getElementById("content"), -300, 1000);
-  // };
-
-  function scrollLeft(element, change, duration) {
+  function scrollTo(element, to, duration) {
     var start = element.scrollLeft,
+      change = to - start,
       currentTime = 0,
       increment = 20;
-
     console.log(start);
-
     var animateScroll = function () {
       currentTime += increment;
       var val = Math.easeInOutQuad(currentTime, start, change, duration);
-      element.scrollLeft = val;
+      element.scrollTop = val;
       if (currentTime < duration) {
         setTimeout(animateScroll, increment);
       }
@@ -48,29 +44,54 @@ const ScrollHorizontal = () => {
 
   return (
     <Fragment>
-      <div className={classes["scroll-container"]}>
-        <ul>
-          <button id="left-button">
+      <div className={classes.main}>
+        <div className={classes["main-scroll-div"]}>
+          <div className={classes.button} onClick={leftButtonHandler}>
             <LeftIcon />
-          </button>
-          <div className={classes["center"]} id="content">
-            <div>
-              <li className={classes["internal"]}>list 1</li>
-              <li className={classes["internal"]}>list 2</li>
-              <li className={classes["internal"]}>list 3</li>
-              <li className={classes["internal"]}>list 4</li>
-              <li className={classes["internal"]}>list 5</li>
-              <li className={classes["internal"]}>list 6</li>
-              <li className={classes["internal"]}>list 7</li>
-              <li className={classes["internal"]}>list 8</li>
-              <li className={classes["internal"]}>list 9</li>
-              <li className={classes["internal"]}>list 10</li>
+          </div>
+          <div className={classes.cover} id="content">
+            <div className={classes["scroll-images"]}>
+              <div className={classes.child}>
+                <img
+                  className={classes["child-img"]}
+                  src={demoImg}
+                  alt="list of meals"
+                />
+              </div>
+              <div className={classes.child}>
+                <img
+                  className={classes["child-img"]}
+                  src={demoImg}
+                  alt="list of meals"
+                />
+              </div>
+              <div className={classes.child}>
+                <img
+                  className={classes["child-img"]}
+                  src={demoImg}
+                  alt="list of meals"
+                />
+              </div>
+              <div className={classes.child}>
+                <img
+                  className={classes["child-img"]}
+                  src={demoImg}
+                  alt="list of meals"
+                />
+              </div>
+              <div className={classes.child}>
+                <img
+                  className={classes["child-img"]}
+                  src={demoImg}
+                  alt="list of meals"
+                />
+              </div>
             </div>
           </div>
-          <button id="right-button">
+          <div className={classes.button} onClick={rightButtonHandler}>
             <RightIcon />
-          </button>
-        </ul>
+          </div>
+        </div>
       </div>
     </Fragment>
   );
